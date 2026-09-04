@@ -3,9 +3,8 @@
 !/local/**
 !/composer.json
 !/composer.lock
-!/phpstan.neon
-!/.php-cs-fixer.dist.php
 !/.gitignore
+!/*.md
 /vendor/
 
 /upload/
