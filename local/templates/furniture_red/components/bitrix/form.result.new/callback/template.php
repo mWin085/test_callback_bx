@@ -6,10 +6,15 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 
 /** @var array $arResult */
 
+
+if (empty($arResult['CALLBACK_CONFIG']['fields'])) {
+    return;
+}
+
 ?>
 
 <div
-    id="<?=htmlspecialcharsbx('callback-form-' . (int) $arResult['arForm']['ID'])?>"
+    id="<?=htmlspecialchars('callback-form-' . (int) $arResult['arForm']['ID'])?>"
     class="callback-form-root"
-    data-callback-form="<?=htmlspecialcharsbx($arResult['CALLBACK_CONFIG_JSON'])?>"
+    data-callback-form="<?=htmlspecialchars($arResult['CALLBACK_CONFIG_JSON'])?>"
 ></div>
