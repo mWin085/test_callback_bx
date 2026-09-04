@@ -37,5 +37,24 @@ $APPLICATION->IncludeComponent("bitrix:menu", "bottom", array(
 		</div>
 		<div id="footer-design"><?=GetMessage("FOOTER_DISIGN")?></div>
 	</div>
+<?php
+if (\Bitrix\Main\Loader::includeModule('form')) {
+    $callbackForm = CForm::GetBySID('CALLBACK_FORM')->Fetch();
+    if ($callbackForm) {
+        $APPLICATION->IncludeComponent(
+                'bitrix:form.result.new',
+                'callback',
+                [
+                        'WEB_FORM_ID' => (int)$callbackForm['ID'],
+                        'IGNORE_CUSTOM_TEMPLATE' => 'Y',
+                        'USE_EXTENDED_ERRORS' => 'Y',
+                        'CACHE_TYPE' => 'A',
+                        'CACHE_TIME' => 3600,
+                        'AUTO_OPEN_DELAY_MS' => 20000,
+                ]
+        );
+    }
+}
+?>
 </body>
 </html>
